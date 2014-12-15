@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
-email:
+title: CUGBACM Blog
+subtitle: Coding your future
+description: 中国地质大学（北京）ACM集训队博客
+author: CUGBACM
+email: cugbacm@gmail.com
 language:
 
 # URL
