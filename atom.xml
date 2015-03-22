@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[CUGBACM Blog]]></title>
+  <subtitle><![CDATA[Coding your future]]></subtitle>
+  <link href="/blog/atom.xml" rel="self"/>
+  <link href="http://cugbacm.github.io/blog/"/>
+  <updated>2015-03-22T09:37:38.000Z</updated>
+  <id>http://cugbacm.github.io/blog/</id>
+  
+  <author>
+    <name><![CDATA[CUGBACM]]></name>
+    <email><![CDATA[cugbacm@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[CUGBACM 14级 简单数论 C题]]></title>
+    <link href="http://cugbacm.github.io/blog/2015/03/22/14-simple-number-C/"/>
+    <id>http://cugbacm.github.io/blog/2015/03/22/14-simple-number-C/</id>
+    <published>2015-03-22T17:24:32.000Z</published>
+    <updated>2015-03-22T09:37:38.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>鉴于明天没空刷题，其他题也不可能第一个A了，于是先把那两道的题解做了。同志们加油。</p>
+<h1 id="讲解">讲解</h1><p>可能有人会问为什么这道题是我写题解，= =。因为我的浏览器很挫，只好用路娇的账号A了它。<br>题意：给N个数，问有几个数的M次方能被K整除。<br>做法一：分解因式，具体做法可能有人能A，没尝试。做法二：快速求模，（mod)k=0则cnt++.<br>顺便附上一个讲解快速模幂的链接：<a href="http://blog.csdn.net/zmazon/article/details/8491301" target="_blank" rel="external">http://blog.csdn.net/zmazon/article/details/8491301</a> </p>
+<h1 id="代码">代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;stdio.h&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;string.h&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;string&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;algorithm&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;math.h&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;iomanip&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;queue&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;map&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;set&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;vector&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> m,<span class="keyword">int</span> k)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   x=x%k;</span><br><span class="line">   <span class="keyword">int</span> res=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m&amp;<span class="number">1</span>)res=(res*x)%k;</span><br><span class="line">        x=(x*x)%k;</span><br><span class="line">        m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,k;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">10010</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        <span class="keyword">int</span> tep,res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="keyword">if</span>(!(solve(a[i],m,k)))res++;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="作者">作者</h1><p>14级 邹卓君</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="前言">前言</h1><p>鉴于明天没空刷题，其他题也不可能第一个A了，于是先把那两道的题解做了。同志们加油。</p>
+<h1 id="讲解">讲解</h1><p>可能有人会问为什么这道题是我写题解，= =。因为我的浏览器很挫，只好用路娇的账号A了它。<br>题意]]>
+    </summary>
+    
+      <category term="Training" scheme="http://cugbacm.github.io/blog/tags/Training/"/>
+    
+      <category term="大一" scheme="http://cugbacm.github.io/blog/tags/%E5%A4%A7%E4%B8%80/"/>
+    
+      <category term="Training" scheme="http://cugbacm.github.io/blog/categories/Training/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Codeforces Training 13]]></title>
+    <link href="http://cugbacm.github.io/blog/2014/12/15/CF-13/"/>
+    <id>http://cugbacm.github.io/blog/2014/12/15/CF-13/</id>
+    <published>2014-12-15T23:10:00.000Z</published>
+    <updated>2015-03-22T09:37:38.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="比赛地址">比赛地址</h1><p><a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=65625#overview" target="_blank" rel="external">http://acm.hust.edu.cn/vjudge/contest/view.action?cid=65625#overview</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="比赛地址">比赛地址</h1><p><a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=65625#overview" target="_blank" rel="external">http]]>
+    </summary>
+    
+      <category term="Codeforces" scheme="http://cugbacm.github.io/blog/tags/Codeforces/"/>
+    
+      <category term="Training" scheme="http://cugbacm.github.io/blog/tags/Training/"/>
+    
+      <category term="Training" scheme="http://cugbacm.github.io/blog/categories/Training/"/>
+    
+  </entry>
+  
+</feed>
