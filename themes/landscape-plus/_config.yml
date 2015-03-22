@@ -1,8 +1,8 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
-rss: /atom.xml
+  Home: /blog/
+  Archives: /blog/archives
+rss: /blog/atom.xml
 
 # Content
 excerpt_link: Read More
