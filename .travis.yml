@@ -14,8 +14,8 @@ before_install:
 - eval $(ssh-agent)
 - ssh-add ~/.ssh/id_rsa
 - cp doc/ssh_config ~/.ssh/config
-- git config --global user.name "Xuanwo"
-- git config --global user.email vars.cn@gmail.com
+- git config --global user.name "cugbacm"
+- git config --global user.email cugbacm@gmail.com
 
 install:
 - npm install hexo-cli -g
